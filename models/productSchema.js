@@ -1,4 +1,4 @@
-const { model, Schema } = require("mongoose");
+const { model, Schema, Types } = require("mongoose");
 
 const productSchema = new Schema({
   brand: {
@@ -11,6 +11,12 @@ const productSchema = new Schema({
   color: {
     type: String,
   },
+  review: [
+    {
+      type: Types.ObjectId,
+      ref: "Review",
+    },
+  ],
   category: {
     type: String,
   },

@@ -11,9 +11,9 @@ exports.createADocument = (Model) =>
     });
   });
 
-exports.getADocument = (Model) =>
+exports.getADocument = (Model, popOut) =>
   catchAsync(async (req, res, next) => {
-    const doc = await Model.findById(req.params.id);
+    const doc = await Model.findById(req.params.id).populate(popOut);
 
     if (!doc) {
       return next(new AppError("Document not Found", 404));
