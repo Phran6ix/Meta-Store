@@ -9,7 +9,7 @@ router.use(protect);
 router.post(
   "/:product",
   restrictTo("user"),
-  reviewController.setTourUserId,
+  reviewController.setProductUserId,
   reviewController.createReview
 );
 
