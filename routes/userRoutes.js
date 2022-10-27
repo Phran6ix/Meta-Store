@@ -13,6 +13,7 @@ router.patch(
   "/addproducttowishlist/:product",
   userController.addProductToWishlist
 );
+router.patch('/updatepassword', authController.updatePassword)
 
 router.get("/wishlistproduct", userController.viewWishlistProduct);
 router.patch("/addtocart", cartController.addProductToCart);
