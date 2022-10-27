@@ -4,7 +4,7 @@ const { model } = require("mongoose");
 const catchAsync = require("../utils/catchAsync");
 const factory = require("./factoryHandler");
 
-exports.setTourUserId = (req, res, next) => {
+exports.setProductUserId = (req, res, next) => {
   req.body.user = req.user.id;
   req.body.product = req.params.product;
   next();
