@@ -85,20 +85,19 @@ exports.restrictTo = (...roles) => {
 };
 
 exports.updatePassword = catchAsync(async (req, res, next) => {
-  const user = await req.user.select('+password')
+  const user = await req.user.select("+password");
 
-  if(!await comparePassword(req.body.password, user.password) ){
-    return next(new AppError('Password is not correct', 400))
+  if (!(await comparePassword(req.body.password, user.password))) {
+    return next(new AppError("Password is not correct", 400));
   }
 
-  if (req.body.password !== req.body.confirmpassword){
-    return next(new AppError('Passwords are not the same', 400))
+  if (req.body.password !== req.body.confirmpassword) {
+    return next(new AppError("Passwords are not the same", 400));
   }
-  user.password = req.body.newpassword
-  await user.save
+  user.password = req.body.newpassword;
+  await user.save;
 
   res.status(204).json({
-    status: 'Success'
-  })
-
-})
+    status: "Success",
+  });
+});

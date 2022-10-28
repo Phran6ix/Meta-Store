@@ -7,6 +7,7 @@ router.use(protect);
 router.get("/getallproducts", productController.getAllProducts);
 router.get("/getaproduct/:id", productController.getAProduct);
 router.get("/getproductsbycategory", productController.getProductByCategory);
+
 router.use(restrictTo("admin"));
 
 router.post("/createproduct", productController.createProduct);

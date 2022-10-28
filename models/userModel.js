@@ -33,12 +33,23 @@ const userSchema = new Schema({
     type: String,
     select: false,
   },
+
   cart: [
     {
-      type: mongoose.Types.ObjectId,
-      ref: "CartElement",
+      product: {
+        type: mongoose.Types.ObjectId,
+        ref: "Product",
+      },
+      quantity: {
+        type: Number,
+        default: 1,
+      },
     },
   ],
+  totalCartPrice: {
+    type: Number,
+    default: 0,
+  },
   resetPasswordToken: {
     type: String,
   },
