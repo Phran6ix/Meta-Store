@@ -13,11 +13,9 @@ router.patch(
   "/addproducttowishlist/:product",
   userController.addProductToWishlist
 );
-router.patch('/updatepassword', authController.updatePassword)
+router.patch("/updatepassword", authController.updatePassword);
 
 router.get("/wishlistproduct", userController.viewWishlistProduct);
-router.patch("/addtocart", cartController.addProductToCart);
-router.get("/viewcart", cartController.viewCart);
 
 router.use(authController.restrictTo("admin"));
 router.get("/getuser", userController.getUser);
